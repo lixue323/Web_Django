@@ -1,0 +1,89 @@
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}
+					
+<h3>
+	商品信息管理
+</h3>
+<form id="edit-profile" class="form-horizontal" action="{% url 'goodsinsert' %}" method="post" enctype="multipart/form-data" >
+	{% csrf_token %}
+	<fieldset>
+		<legend>信息添加</legend>
+
+
+		<div class="control-group">
+			<label class="control-label" for="input01">商品类别</label>
+			<div class="controls">
+				<select name="typeid" id="">
+					{% for i in typelist %}
+						<option 
+							{% if i.pid == 0 %}
+									disabled
+							{% endif %} 
+							value="{{ i.id }}"> {{ i.name }}
+						</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		
+		<div class="control-group">
+			<label class="control-label" for="input01">商品名称:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="goods" value="" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">价格:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="price" value="" />
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="input01">商品图片:</label>
+			<div class="controls">
+					<input type="file" class="input-xlarge" id="input01" name="picname" value="" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">公司:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="company" value="" />
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="input01">库存:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="store" value="" />
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="input01">添加时间:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="addtime" value="" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">描述:</label>
+			<div class="controls">
+				<textarea cols="40" style="width:450px" rows="10" name="desc"></textarea>
+			</div>
+		</div>
+							
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">添加</button> <button class="btn">重置</button>
+		</div>
+	</fieldset>
+</form>
+
+{% endblock %}

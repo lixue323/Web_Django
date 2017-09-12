@@ -1,0 +1,57 @@
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}
+					
+<h3>
+	商品类别
+</h3>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>
+				id
+			</th>
+			
+			<th>
+				name
+			</th>
+			<th>
+				pid
+			</th>
+			<th>
+				path
+			</th>
+			<th colspan=3 style='text-align:center'>
+				操作
+			</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	{% for i in types %}
+	<tr>
+		<td>{{ i.id }}</td>
+		<td>{{ i.pname}}|-- {{ i.name }}</td>
+		<td>{{ i.pid }}</td>
+		<td>{{ i.path }}</td>
+		<td><a href="{% url 'typeadd' i.id %}">添加子类</a></td>
+		<td><a href="{% url 'typedel' i.id %}">删除</a></td>
+		<td><a href="{% url 'typeedit' i.id %}">编辑</a></td>
+	</tr>
+	{% endfor %}
+		
+	</tbody>
+
+</table>				
+<div class="pagination">
+		<ul class="pagination">
+            {%for pindex in plist%}
+                <li><a href={% url 'typeindex' pindex %}>{{pindex}}</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            {% endfor %}
+        </ul>
+</div>
+
+
+
+	
+{% endblock %}

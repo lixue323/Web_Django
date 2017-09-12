@@ -1,0 +1,242 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mi•购物车</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'myweb/images/bt.ico' %}"/>
+    <!-- Bootstrap -->
+    <link href="{% static 'myweb/public/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <link rel="stylesheet" href="{% static 'myweb/public/css/buycar.css' %}">
+    
+
+
+    <script src="{% static 'myweb/public/js/jquery-1.12.4.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'myweb/public/js/bootstrap.min.js' %}"></script>
+    
+    
+</head>
+<body>
+
+	<!-- 标题 -->
+	<div class="container">
+		<div class="row col-md-1 col-xs-2">
+			<img src="{% static 'myweb/images/10.png' %}" alt="" id="img1">
+		</div>
+		<div class="row col-md-3  col-xs-7 col-xs-offset-1 head">
+			<h3>我的购物车</h3>
+			
+		</div>		
+	</div>
+	<!-- end标题 -->
+
+	<hr style=" border:1px solid orange; " >
+
+	<!-- 购物车商品展示 -->
+	<div class="container">
+		<div class="row">
+			<table class="table table-bordered">
+				<tr>
+					<th><input id="checkall" type="checkbox" value="0"  >全选</th>
+					<th>商品名称</th>
+					<th>单价(元)</th>
+					<th>数量</th>
+					<th>小计(元)</th>
+					<th>操作</th>
+			 	</tr>
+			 	<tr>
+			 		<td><input  class="chk" id="good1" type="checkbox" value="1" name="goods[]"></td>
+			 		<td>小米4C</td>
+			 		<td>1239</td>
+			 		<td ><button class="jian">－</button><input class=Num type="text" value="1"><button class="jia">＋</button></td>
+			 		<td class="prices">1239</td>
+			 		<td><button class="remov">✘</button></td>
+			 	</tr>
+			 	<tr>
+			 		<td><input  class="chk" id="good2" type="checkbox" value="2" name="goods[]" ></td>
+			 		<td>小米衬衫</td>
+			 		<td>99</td>
+			 		<td><button class="jian">－</button><input class=Num  type="text" value="1"><button class="jia">＋</button></td>
+			 		<td class="prices">99</td>
+			 		<td><button class="remov">✘</button></td>
+			 	</tr>
+			 	<tr>
+			 		<td><input   class="chk"  id="good3" type="checkbox" value="3" name="goods[]"></td>
+			 		<td>小米小米</td>
+			 		<td>29</td>
+			 		<td><button class="jian">－</button><input class=Num  type="text" value="1"><button class="jia">＋</button></td>
+			 		<td class="prices">29</td>
+			 		<td><button class="remov">✘</button></td>
+			 	</tr>
+			 	<tr>
+			 		<td><input class="chk" id="good4" type="checkbox" value="3" name="goods[]" ></td>
+			 		<td>小米空调</td>
+			 		<td>2999</td>
+			 		<td><button class="jian">－</button><input class=Num  type="text" value="1"><button class="jia">＋</button></td>
+			 		<td class="prices">2999</td>
+			 		<td><button class="remov">✘</button></td>
+			 	</tr>
+			</table>
+		</div>
+	</div>
+	<!--end 购物车商品展示 -->
+
+	<!-- 数量价格计算 -->
+	<div class="container">
+		<div class="row col-md-3">
+			<a href="{% url 'index' %}">继续购物</a>
+			<span>共<i class="num" id="allgoodsnum">2</i>件商品</i></span>
+
+		</div>
+		
+		<div class="row col-md-3 col-md-offset-5">
+			<span>合计<em class="num" id='allprices'>3455</em>元</span>	
+		</div>
+		<div class="row col-md-1 ">
+			<button>去结算</button>
+		</div>
+	</div>
+	<!-- end数量价格计算 -->
+
+	<hr>
+	<!-- 商品展示区轮播图 -->
+	<div class="container select01" style="position:relative" >	
+			 <div class="row ">
+		         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					  <!-- Indicators -->
+					    <ol class="carousel-indicators">
+					      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					      <li data-target="#carousel-example-generic" data-slide-to="1" class="active1"></li>
+					      <li data-target="#carousel-example-generic" data-slide-to="2" class="active2"></li>
+					    </ol>
+
+		             <div class="carousel-inner">
+		  
+			             <div class="item active">
+			                 <img src="{% static 'myweb/images/92.jpg' %}" alt="..."  class="img-responsive">
+				         </div>
+
+			             <div class="item active1">
+			                  <img src="{% static 'myweb/images/93.jpg' %}" alt="..." class="img-responsive">
+			             </div>
+
+			             <div class="item active2">
+			                  <img src="{% static 'myweb/images/94.jpg' %}" alt="..." class="img-responsive">
+			             </div>
+
+		             </div>
+		   
+
+
+		 
+				     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+				          <span class="glyphicon glyphicon-chevron-left"></span>
+				     </a>
+				     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+				          <span class="glyphicon glyphicon-chevron-right"></span>
+				     </a>
+		          </div>
+			 </div>
+	</div>
+	<!-- end商品展示区轮播图 -->
+
+	<!-- 尾部 -->
+	<footer class="footer " style="background: #fff;">
+			<div class="container">
+				<div class="row footer-top" style="margin: 0;padding: 0;">
+					<div class="col-sm-6 col-md-12">
+					    <h4 >
+					            <!-- <img src="https://static.bootcss.com/www/assets/img/logo.png' %}?1503034592571"> -->
+					       <h2>400-100-5678</h2>
+					       <h6>周一至周日 8:00-18:00（仅收市话费）</h6>
+					    </h4>
+					          
+					</div>
+			    <div class="col-sm-6  col-md-12 " >
+					        <!-- <div class="col-sm-6  col-lg-5 col-lg-offset-1"> -->
+				<div class="row f" >
+					<div class="col-md-2  col-xs-4 ">
+						<h4>帮助中心</h4>
+							<ul class="list-unstyled">
+								<li><a href="/about/">账户管理</a></li>
+							    <li><a href="/ad/">购物指南</a></li>
+								<li><a href="/links/">订单操作</a></li>
+									              
+							</ul>
+					</div>
+					<div class="col-md-2  col-xs-4 ">
+							<h4>服务支持</h4>
+								<ul class="list-unstyled">
+								  <li><a href="" title="" target="_blank">售后政策</a></li>
+								  <li><a href="">自助服务</a></li>
+								  <li><a href="">相关下载</a></li>
+								</ul>
+					</div>
+					<div class="col-md-2  col-xs-4 ">
+							<h4>线下门店</h4>
+								<ul class="list-unstyled">
+									 <li><a href="" >小米之家</a></li>
+									 <li><a href="" >服务网点</a></li>
+									 <li><a href="" >零售网点</a></li>
+								</ul>
+					</div>
+				    <div class="col-md-2  col-xs-4 ">
+							<h4>关于小米</h4>
+							    <ul class="list-unstyled">
+									 <li><a href="" >了解小米</a></li>
+									 <li><a href="" >加入小米</a></li>
+									 <li><a href="" >联系我们</a></li>
+						        </ul>
+				    </div>
+					<div class="col-md-2  col-xs-4 ">
+							 <h4>关注我们</h4>
+								 <ul class="list-unstyled">
+								       <li><a href="" title="" >新浪微博</a></li>
+					 				   <li><a href="">小米部落</a></li>
+								       <li><a href="">官方微信</a></li>
+
+								 </ul>
+					</div>
+					    <div class="col-md-2 col-xs-4 ">
+							<h4>特色服务</h4>
+								<ul class="list-unstyled">
+								  <li><a href="" title="" >F码通道</a></li>
+								  <li><a href="">礼物码</a></li>
+								  <li><a href="">防伪查询</a></li>
+
+								</ul>
+					    </div>
+				    </div>  
+			    </div>
+		    </div>
+		    <hr>
+			    
+		    <div class="row footer-bottom">
+			      
+			    <ul class="list-inline text-center">
+			      
+				    <li><a href=""><h6></h6></a></li>
+			        <p>
+			        <li><h6><a href="">©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</a></h6></li>
+			        <li><h6>  </h6></li>
+			        <li><h6> </h6></li></p>
+			    </ul>
+		      </div>
+			</div>
+	</footer>
+	<!-- end尾部 -->
+
+
+
+</body>
+	<script type="text/javascript" src="{% static 'myweb/public/js/buycar.js' %}"></script>
+</html>	
+
+	
+		

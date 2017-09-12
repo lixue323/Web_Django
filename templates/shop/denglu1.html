@@ -1,0 +1,96 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mi•登录注册</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'myweb/images/bt.ico' %}"/>
+    <!-- Bootstrap -->
+    <link href="{% static 'myweb/public/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <link rel="stylesheet" href="{% static 'myweb/public/css/denglu1.css' %}">
+    
+
+    <script src="{% static 'myweb/public/js/jquery-1.12.4.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'myweb/public/js/bootstrap.min.js' %}"></script>
+    
+   
+</head>
+<body>
+	<!-- 标题 -->
+	<div class="container">
+		<div class="row col-md-1 col-xs-2">
+			<img src="{% static 'myweb/images/10.png' %}" alt="" id="img1">
+		</div>
+		<div class="row col-md-3  col-xs-7 col-xs-offset-1 head">
+			<h3>小米商城</h3>
+			<h6>让每个人都能享受科技的乐趣</h6>
+		</div>
+		
+	</div>
+	<!-- end标题 -->
+	<!-- 中间内容 -->
+	 <div class="jumbotron">
+	 	<div class="container">
+	 		<!-- 商品展示区 -->
+		 	<div class="row col-md-5" >
+			 	 <h1>小米note2 </h1>
+			 	 <p>一面科技,一面艺术</p>
+			 	 <p>2256超高像素 | 双曲面柔性屏<span>2799元</span></p>
+			 	 <img src="{% static 'myweb/images/25.png' %}" alt="">
+			</div>
+			<!-- 商品展示完 -->
+			<!-- 注册登录 -->
+			<div class="row col-md-4 col-md-offset-2 select " >
+				<div class="all ">
+					<ul class="options">
+						<li class="active">登录</li>
+						<li >注册</li>
+					</ul>
+					<ul class="card">
+						<li>
+							<form id="b" action="">
+								<input class="inp" type="text" name="username" placeholder='昵称(6-8任意字符)' ><span></span>
+								<input class="inp" type="text" onfocus="this.type='password' "name="passwd" placeholder='密码(6-18)' ><span></span>
+								<button type="submit" id="old"  class="btn btn-primary btn-lg btn-block all2  inp">立即登录</button>
+						    </form>
+						    <br><br><br><br><br><br><br>
+						    <h5 id="h1"><a href="">忘记密码</a>&nbsp;&nbsp;<a href="">扫码登录</a></h5>
+						    
+						    
+					    </li>
+					    <li class="active">
+					    	<form id="b1" action=" " >
+								<input class="inp" type="text" name="username" placeholder='昵称(6-8任意字符)'><span></span>
+								<input class="inp" type="text" name="phone" placeholder='手机号(11位数字)')><span></span>
+								<input class="inp" type="text" onfocus="this.type='password' "name="passwd" placeholder='密码(6-18)' ><span></span>
+								<input class="inp" type="text" onfocus="this.type='email'" name="email" placeholder='邮件(标准邮箱地址)'><span></span>
+								<button   type="submit" id="new"  class="btn btn-primary btn-lg btn-block  all2">立即注册</button>
+							</form>
+							<br><br>
+							<h5 id="h2">您愿意遵守小米<a href=""> 用户协议</a>和<a href="">隐私政策</a></h5>
+							<br>
+							
+					    </li>
+					</ul>
+				</div>
+			<!-- 注册登陆完 -->
+	 		</div>
+	    </div> 
+	 </div>
+	<!-- end中间内容 -->
+	
+
+
+</body>
+	<script type="text/javascript" src="{% static 'myweb/public/js/denglu1.js' %}"></script>
+
+</html>	
+
+	
+		

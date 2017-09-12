@@ -1,0 +1,41 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Login - Akira</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="{% static 'myadmin/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'css/bootstrap-responsive.min.css' %}" rel="stylesheet">
+		<link href="{% static 'css/site.css' %}" rel="stylesheet">
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
+		<div id="login-page" class="container" style='text-align:center'>
+		
+			<h1>登录</h1>
+			<center>
+			<form id="login-form" class="well" action="{% url 'dologin' %}" style='width:210px' method='post' style='text-align:center'>
+				{% csrf_token %}
+				账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号 &nbsp; <input type="text" class="span2" placeholder="账号"  name='username' /><br />
+				密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码 &nbsp; <input type="password" class="span2" placeholder="密码" name='passwd'/><br>
+				验证码&nbsp; <input type="text" class="span2" placeholder="" name='code' style='width:40px'/>
+				<img src="{% url 'verify' %}" onclick="this.src='{% url 'verify' %}?sn='+Math.random()"/><br>
+				<center>	
+					<input type="checkbox" /> 记住我
+					<br><br>
+					<button type="submit" class="btn btn-primary">登录</button>
+					<button type="reset" class="btn">重置</button>
+					<br><br>
+					<span>{{ info }}</span>
+				</center>
+			</form>	
+			</center>
+	
+		</div>
+		
+		<script src="{% static 'myadmin/js/jquery.min.js' %}"></script>
+		<script src="{% static 'myadmin/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'myadmin/js/site.js' %}"></script>
+	</body>
+</html>

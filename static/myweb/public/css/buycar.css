@@ -1,0 +1,13 @@
+body{
+	padding-top: 20px;
+}
+
+	
+.head{margin-left:20px; padding-top:5px; }
+.head h3{margin-top:5%;}
+
+tr,th{text-align:center;};
+td div{background: grey;}
+.num{font-size: 18px;color:orange;font-weight: bold}
+
+.Num{width:20%;text-align: center}

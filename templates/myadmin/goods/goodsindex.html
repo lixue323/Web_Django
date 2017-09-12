@@ -1,0 +1,80 @@
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}
+					
+<h3>
+	商品信息
+</h3>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>
+				商品id
+			</th>
+			
+			<th>
+				商品类别
+			</th>
+			<th>
+				商品名称
+			</th>
+			<th>
+				图片
+			</th>
+			<th>
+				价格
+			</th>
+			<th>
+				状态
+			</th>
+			<th>
+				库存
+			</th>
+			<th colspan=2 style='text-align:center'>
+				操作
+			</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	{% for i in goods %}
+
+	<tr>
+		<td>{{ i.id }}</td>
+		<td>{{ i.pname}}</td>
+		<td>{{ i.goods }}</td>
+		<td><img src="/static/goods/{{ i.picname }}" width="60"/></td>
+		<td>{{ i.price }}</td>
+		<td>
+		{% if i.state == 1 %}
+              新添加
+        {% elif i.state == 2 %}
+              在售
+        {% else %}
+              下架
+        {% endif %}
+		
+		</td>
+		<td>{{ i.store }}</td>
+		
+		<td><a href="{% url 'goodsdel' i.id %}">删除</a></td>
+		<td><a href="{% url 'goodsedit' i.id %}">编辑</a></td>
+	</tr>
+
+	{% endfor %}
+		
+	</tbody>
+
+</table>				
+<div class="pagination">
+		<ul class="pagination">
+            {%for pindex in plist%}
+                <li><a href={% url 'goodsindex' pindex %}>{{pindex}}</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            {% endfor %}
+        </ul>
+</div>
+
+
+
+	
+{% endblock %}

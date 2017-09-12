@@ -1,0 +1,151 @@
+    	div,a,span,ul,li,a,img{
+    		margin: 0px;
+    		padding: 0px;
+    	}
+    	body{
+    		padding-top: 50px;
+
+    	}
+
+		.nav1{margin-left: 50px;}
+
+		.nav2{margin-left: 300px;}
+
+		.select0{margin-top:40px; }
+
+		.select{
+			margin: 0;
+			padding: 0;
+			margin-bottom: 20px;
+		}
+
+		.select1{margin:0px;padding: 0px; }
+
+		.select2{
+			margin-left:15px;
+			margin-top: 20px; 
+			line-height: 100%;
+		}
+
+		.select2 li{font-size: 18px;}
+		.select2 a{color:#333333;text-decoration: none;}
+		.select2 a:hover{color:orange;}
+
+		
+
+
+		.select3{margin-top: 15px; line-height: 100%;}
+
+
+		.head1{
+			position:absolute;
+			top:0;
+			left:0;
+			width: 20%;
+			height: 100%;
+			background: rgba(90,89,89,0.5);
+		}
+		
+		.head2{
+			list-style:none;
+			width: 100%;
+			height: 100%;
+			padding-top:15px; 
+		}
+
+		.head2 i{
+			float:right;
+			margin-right:30px; 
+			font-weight: bold;
+		}
+	
+		.head2 li{
+			height: 10%;
+			padding-left:30px;
+			padding-top: 10px;	
+		}
+
+		.head2 a{text-decoration: none;}
+
+		.head3{background: orange;}
+		
+		#head4{
+			position:absolute;
+			top:0;
+			left:20%;
+			height: 100%;
+			background: white;	
+			display:none;		
+		}
+
+
+		.card li{display:none;}
+
+		.card li p{margin-left: 10px;padding: 0px;}
+
+		.card button{
+			margin: 0px;
+			margin-left: 15px;
+			padding: 0px;	
+		}
+
+		.card li div{
+			float:left;
+			margin-right: 0px;
+			padding: 0px;
+			margin-left: 50px;
+			margin-top: 20px;
+		}
+
+		.active{display:block;}
+
+		.card img{
+			margin: 0px;
+			width:80px;
+			height:80px;
+		}
+		
+		.show{
+			background: rgba(86,89,81,0.5);
+			margin: 0px;
+			margin-top: 1%;
+			padding: 1%;
+			}
+
+		.show ul{margin-left: 5px;padding-left:5px;}
+
+		.show li{
+			list-style: none;
+			float:left;
+			width: 31%;
+			margin-top: 1%;
+			margin-left: 1%;
+		}
+		
+		.show1{margin: 0px;padding: 0px;}
+
+		.show2{padding: 0px;}
+
+		.good {padding: 10px;}
+
+		.good li{
+			float:left;
+			list-style:none;
+			margin-right:1%;
+			text-align:center;
+			width:19%;}
+
+		.good img{width: 100%;height: 100%;}
+
+		.price{color:#FF6709;}
+
+		.gname{margin-bottom: 0px;}
+
+
+		.image{padding: 1px;}
+
+		
+
+		.foot div{margin-right: 4%;}
+
+		.foot dl {text-align:center;}

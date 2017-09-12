@@ -1,0 +1,74 @@
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}
+					
+<h3>
+	用户信息浏览
+</h3>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>
+				编号
+			</th>
+			<th>
+				昵称
+			</th>
+			<th>
+				真实姓名
+			</th>
+			
+			<th>
+				性别
+			</th>
+			
+			<th>
+				电话
+			</th>
+			<th>
+				邮箱
+			</th>
+			<th>
+				状态
+			</th>
+			<th>
+				注册时间
+			</th>
+			<th colspan=2 style='text-align:center'>
+				操作
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for i in users %}
+	<tr>
+		<td>{{ i.id }}</td>
+		<td>{{ i.username }}</td>
+		<td>{{ i.name }}</td>
+		<td>{{ i.sex }}</td>
+		
+		
+		<td>{{ i.phone }}</td>
+		<td>{{ i.email }}</td>
+		<td>{{ i.state }}</td>
+		<td>{{ i.addtime }}</td>
+		<td><a href="{% url 'usersdel' i.id %}">删除</a></td>
+		<td><a href="{% url 'usersedit' i.id %}">编辑</a></td>
+	</tr>
+	{% endfor %}
+		
+	</tbody>
+
+</table>				
+<div class="pagination">
+		<ul class="pagination">
+            {%for pindex in plist%}
+                <li><a href={% url 'usersindex' pindex %}>{{pindex}}</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            {% endfor %}
+        </ul>
+</div>
+
+
+
+	
+{% endblock %}

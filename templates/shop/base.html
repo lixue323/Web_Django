@@ -1,0 +1,201 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{%block title%}title{%endblock%}
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'myweb/images/bt.ico' %}" >
+    <!-- Bootstrap -->
+    <link href="{% static 'myweb/public/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'myweb/public/js/jquery-1.12.4.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'myweb/public/js/bootstrap.min.js' %}"></script>
+    {%block css%}css{%endblock%}
+</head>
+<body>
+	<!-- 导航条 -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header ">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand" href="#">mi</a>
+	  </div>
+
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">小米商城</a></li>
+	      <li><a href="#">MIUI</a></li>
+	      <li><a href="#">米聊</a></li>
+	      <li><a href="#">游戏</a></li>
+	      <li><a href="#">多看阅读</a></li>
+	      <li class="dropdown">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+	               <li><a href="#">金融</a></li>
+	               <li><a href="#">小米商城移动版</a></li>
+	               <li><a href="#">问题反馈</a></li>
+	               <li class="divider"></li>
+	               <li><a href="#">SelectRegin</a></li> 
+	               <li><a href="#">云服务</a></li>         
+	            </ul> 
+	       </li>  
+	    </ul>
+	   
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="{% url 'denglu1' %}" target="_blank">登录</a></li>
+	      <li><a href="{% url 'denglu1' %}" target="_blank">注册</a></li>
+	      <li><a href="{% url 'buycar' %}" target="_blank">购物车</a></li>
+	      &nbsp;
+	      &nbsp;
+	      &nbsp;
+	    </ul>
+	  </div><!-- /.navbar-collapse -->
+	</nav>
+	<!-- end导航条 -->
+
+	<!-- 导航下方选择区 -->
+	<div class="container hidden-xs hidden-sm select0">
+		<div class="row col-md-12  select">
+		    <div class="row col-md-1 select1">
+		    	<img src="{% static 'myweb/images/10.png' %}">
+		    </div>
+		    <div class="row col-md-1 select1"></div>
+		    <div class="row col-md-7 select1">
+		    	<ul class="list-inline select2">
+		    		<li><a href="">小米手机</a></li>
+		    		<li><a href="">红米</a></li>
+		    		<li><a href="">平板•笔记本</a></li>
+		    		<li><a href="{% url 'show' %}" target="_blank">电视</a></li>
+		    		<li><a href="">盒子•影音</a></li>
+		    		<li><a href="">路由器</a></li>
+		    		<li><a href="">智能硬件</a></li>
+		    		<li><a href="">服务</a></li>
+		    		<li><a href="">社区</a></li>
+		    	</ul>
+		    </div>
+		    <div class="input-grouprow col-md-3 select3">
+		    	 <input type="text" id="focusedInput">
+		    	    <span class="">
+		    	        <input type="submit" value="搜索">
+		    	    </span>
+		    	    </div>	    	 
+		    </div>
+			
+		</div>
+	</div>
+	<!-- end导航下方选择区 -->
+
+	
+
+    {%block contend%}中间部分{%endblock%}
+
+	<!-- 尾部 -->
+	<footer class="footer " style="background: #fff;">
+		<div class="container">
+			<div class="row footer-top" style="margin: 0;padding: 0;">
+				<div class="col-sm-6 col-md-12">
+				    <h4 >
+				            <!-- <img src="https://static.bootcss.com/www/assets/img/logo.png?1503034592571"> -->
+				       <h2>400-100-5678</h2>
+				       <h6>周一至周日 8:00-18:00（仅收市话费）</h6>
+				    </h4>
+				          
+				</div>
+		    <div class="col-sm-6  col-md-12 " >
+				        <!-- <div class="col-sm-6  col-lg-5 col-lg-offset-1"> -->
+			<div class="row f" >
+				<div class="col-md-2  col-xs-4 ">
+					<h4>帮助中心</h4>
+						<ul class="list-unstyled">
+							<li><a href="/about/">账户管理</a></li>
+						    <li><a href="/ad/">购物指南</a></li>
+							<li><a href="/links/">订单操作</a></li>
+								              
+						</ul>
+				</div>
+				<div class="col-md-2  col-xs-4 ">
+						<h4>服务支持</h4>
+							<ul class="list-unstyled">
+							  <li><a href="" title="" target="_blank">售后政策</a></li>
+							  <li><a href="">自助服务</a></li>
+							  <li><a href="">相关下载</a></li>
+							</ul>
+				</div>
+				<div class="col-md-2  col-xs-4 ">
+						<h4>线下门店</h4>
+							<ul class="list-unstyled">
+								 <li><a href="" >小米之家</a></li>
+								 <li><a href="" >服务网点</a></li>
+								 <li><a href="" >零售网点</a></li>
+							</ul>
+				</div>
+			    <div class="col-md-2  col-xs-4 ">
+						<h4>关于小米</h4>
+						    <ul class="list-unstyled">
+								 <li><a href="" >了解小米</a></li>
+								 <li><a href="" >加入小米</a></li>
+								 <li><a href="" >联系我们</a></li>
+					        </ul>
+			    </div>
+				<div class="col-md-2  col-xs-4 ">
+						 <h4>关注我们</h4>
+							 <ul class="list-unstyled">
+							       <li><a href="" title="" >新浪微博</a></li>
+				 				   <li><a href="">小米部落</a></li>
+							       <li><a href="">官方微信</a></li>
+
+							 </ul>
+				</div>
+				    <div class="col-md-2 col-xs-4 ">
+						<h4>特色服务</h4>
+							<ul class="list-unstyled">
+							  <li><a href="" title="" >F码通道</a></li>
+							  <li><a href="">礼物码</a></li>
+							  <li><a href="">防伪查询</a></li>
+
+							</ul>
+				    </div>
+			    </div>  
+		    </div>
+	    </div>
+	    <hr>
+		    
+	    <div class="row footer-bottom">
+		      
+		    <ul class="list-inline text-center">
+		      
+			    <li><a href=""><h6></h6></a></li>
+		        <p>
+		        <li><h6><a href="">©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</a></h6></li>
+		        <li><h6>  </h6></li>
+		        <li><h6> </h6></li></p>
+		    </ul>
+	      </div>
+		</div>
+    </footer>
+	<!-- end尾部 -->
+
+	
+	
+
+
+	 
+		
+	 
+
+
+	
+</body>
+{%block js%}js{%endblock%}
+</html>
