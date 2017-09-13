@@ -14,8 +14,9 @@
 	<!-- 当前页显示文字 -->
 	<div class="container">
 		<div class="row col-md-2 col-xs-6">
-			<a href="{% static 'index.html" style="color:black" target="_blank"><span>首页</span></a>
-			<span>/选购电视•盒子</span>
+			<a href="{% url 'myweb_index' %}" style="color:black" target="_blank"><span>首页</span></a>/
+			<a href="{% url 'show' %}" style="color:black" target="_blank"><span>全部</span></a>
+			
 			
 		</div>	
 	</div>
@@ -25,208 +26,79 @@
 	<!-- 当前页选择区 -->
 	<div class="container head0">
 		<div class="row col-md-12">
-			<div class="col-md-2 col-xs-4">
-				<a href="" class="head"><h5>电视•盒子</h5></a>
+			
+			{% for tt in typelist %}
+			<div class="col-md-1 col-xs-4">
+				<a href="{% url 'show' tt.id %}" >
+				<h4>{{ tt.name }}</h4></a>
+			</div>
+			{% endfor %}
+
+		
+
+			<div class="col-md-1 col-xs-4">
+				<a href="" style="color:orange"><h5>更多&gt;&gt;</h5></a>
 			</div>
 
-			<div class="col-md-2 col-xs-4">
-				<a href=""><h5>电视4&nbsp;49英寸</h5></a>
-			</div>
-
-			<div class="col-md-2 col-xs-4">
-				<a href=""><h5>电视4&nbsp;55英寸</h5></a>
-			</div>
-
-			<div class="col-md-2 col-xs-4">
-				<a href=""><h5>电视4&nbsp;65英寸</h5></a>
-			</div>
-
-			<div class="col-md-2 col-xs-4">
-				<a href=""><h5>电视4&nbsp;32英寸</h5></a>
-			</div>
-
-			<div class="col-md-2 col-xs-4">
-				<a href="" style="color:orange"><h5>全部&gt;&gt;</h5></a>
-			</div>
+			
 				
 		</div>
 	</div>
+	<br>
+
+	<div class="container head0">
+		<div class="row col-md-12">
+			
+			{% for t in types %}
+			<div class="col-md-1 col-xs-4">
+				<a href="{% url 'show' t.id %}"  style="color:black">
+				<h5>{{ t.name }}</h5></a>
+			</div>
+			{% endfor %}
+
+			{% for t1 in types1 %}
+			<div class="col-md-1 col-xs-4">
+				<a href="{% url 'show' t1.id %}"  style="color:black">
+				<h5>{{ t1.name }}</h5></a>
+			</div>
+			{% endfor %}
+			
+				
+		</div>
+	</div>
+
+
+
+			
+
 	<!-- end当前页选择区 -->
 
  	<hr>
 
 	<!-- 商品展示1区 -->
-	<div class="container">
-		<div class="row col-md-12">
-			<img class="imgs" src="{% static 'myweb/images/66.jpg' %}" alt="">
-		</div>
-	</div>
 
+	
 	<div class="container">
 		<div class="row col-md-12">
-		  <div class="col-sm-12 col-md-6 show">
+		{% for goods in goodslist %}
+		  <div class="col-sm-12 col-md-3 show">
 		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/67.jpg' %}" alt="...">
+		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'goods/m_' %}{{ goods.picname}}" alt="..."style="height:250px">
 		      <div class="caption">
-		        <h3>小米电视4A 32英寸 999元</h3>
-		        <p>64位四核处理器／人工智能系统PatchWall</p>
+		        <h3>{{ goods.goods}}</h3>
+		        <p>{{ goods.price}}</p>
 		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="{% url 'content' %}" target="_blank" class="btn btn-default" role="button">详情</a>
 		      </div>
 		    </div>
 		  </div>
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img  class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/68.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>小米电视4A 43英寸 1899元</h3>
-		        <p>1080p全高清屏，四核64位高性能处理器</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
+		  {% endfor %}
+
 		</div>
 	</div>
-	
-	<div class="container">
-		<div class="row col-md-12">
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/69.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>小米电视4A 49英寸 2199元</h3>
-		        <p>1080p全高清屏，四核64位高性能处理器</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/70.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>4A 49英寸语音版 2299元</h3>
-		        <p>老人小孩都会用的人工智能语音电视</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
+
 	<!-- end商品展示1区 -->
 
-	<!-- 商品展示2区 -->
-	<div class="container">
-		<div class="row col-md-12">
-			<img class="imgs" src="{% static 'myweb/images/74.jpg' %}" alt="">
-		</div>
-	</div>
 
-	<div class="container">
-		<div class="row col-md-12">
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/75.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>小米电视4 55英寸 3799元</h3>
-		        <p>4.9mm 极超薄高端旗舰电视，超高清画质</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/76.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>4A 55英寸标准版 2499元</h3>
-		        <p>4K超高清屏，四核64位高性能处理器</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="row col-md-12">
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/77.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>4A 55英寸语音版 2799元</h3>
-		        <p>老人小孩都会用的人工智能语音电视</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/78.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>小米电视3s 55英寸 3099元</h3>
-		       原装LG 4K IPS硬屏，超薄金属机身</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	<!-- end商品展示2区 -->
-
-	<!--商品展示3区  -->
-	<div class="container-fliud">
-		<div class="row col-md-12">
-			<img class="imgs" src="{% static 'myweb/images/79.jpg' %}" alt="" width="100%">
-		</div>
-	</div>
-
-	<div class="container-fluid">
-		<div class="row col-md-12">
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/80.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>小米电视4 65英寸 9999元</h3>
-		        <p>杜比全景声影院电视，4.9mm 极超薄机身</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs"  data-src="holder.js/300x200" src="{% static 'myweb/images/81.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>4A 65英寸标准版 4399元</h3>
-		        <p>4K 超清屏，2GB+8/32GB 大存储</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
-	   </div>
-	</div>
-
-	<div class="container-fluid">
-		<div class="row col-md-12">
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs" data-src="holder.js/300x200" src="{% static 'myweb/images/82.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>4A 65英寸语音版 4699元</h3>
-		        <p>人工智能语音，4K超清大屏，2G+32G大存储</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-12 col-md-6 show">
-		    <div class="thumbnail">
-		      <img class="imgs"  data-src="holder.js/300x200" src="{% static 'myweb/images/83.jpg' %}" alt="...">
-		      <div class="caption">
-		        <h3>3s 65英寸影院版 6499元</h3>
-		        <p>原装三星真4K屏，超薄金属机身</p>
-		        <a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">详情</a>
-		    </div>
-		  </div>
-		</div>
-	  </div>
-    </div> 
-	<!-- end商品展示3区 -->
 
 	<!-- 风采展示区 -->
 	<div class="container">

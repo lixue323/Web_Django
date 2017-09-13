@@ -54,19 +54,35 @@
 					</ul>
 					<ul class="card">
 						<li>
-							<form id="b" action="">
+							<form id="b" action="{% url 'myweb_dologin' %}" method='post'>
+							{% csrf_token %}
 								<input class="inp" type="text" name="username" placeholder='昵称(6-8任意字符)' ><span></span>
-								<input class="inp" type="text" onfocus="this.type='password' "name="passwd" placeholder='密码(6-18)' ><span></span>
+
+								<input class="inp" type="text" name="passwd" placeholder='密码(6-18)' ><span></span>
+
+								<input class="inp" type="text" onfocus="this.type='text' "name="code"   style='width:120px'placeholder='验证码' >
+
+								<img src="{% url 'myweb_verify' %}" onclick="this.src='{% url 'myweb_verify' %}?sn='+Math.random()"/><br>
 								<button type="submit" id="old"  class="btn btn-primary btn-lg btn-block all2  inp">立即登录</button>
 						    </form>
 						    <br><br><br><br><br><br><br>
+						    <p> {{ info }} </p>
 						    <h5 id="h1"><a href="">忘记密码</a>&nbsp;&nbsp;<a href="">扫码登录</a></h5>
 						    
 						    
 					    </li>
 					    <li class="active">
-					    	<form id="b1" action=" " >
+					    	<form id="b1" action="{% url 'myweb_add' %}" method='get' >
+					    	{% csrf_token %}
 								<input class="inp" type="text" name="username" placeholder='昵称(6-8任意字符)'><span></span>
+								<input class="inp" type="text" name="name" placeholder='真实姓名'><span></span><br>
+
+								<input class="inp" type="radio" name="sex" value="1" >男<span></span>
+
+								<input class="inp" type="radio" name="sex" value="0" >女<span></span>
+
+
+								<input class="inp" type="text" name="code" placeholder='六位邮编'><span></span>
 								<input class="inp" type="text" name="phone" placeholder='手机号(11位数字)')><span></span>
 								<input class="inp" type="text" onfocus="this.type='password' "name="passwd" placeholder='密码(6-18)' ><span></span>
 								<input class="inp" type="text" onfocus="this.type='email'" name="email" placeholder='邮件(标准邮箱地址)'><span></span>

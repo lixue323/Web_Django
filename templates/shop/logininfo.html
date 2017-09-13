@@ -1,0 +1,68 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mi•登录注册</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'myweb/images/bt.ico' %}"/>
+    <!-- Bootstrap -->
+    <link href="{% static 'myweb/public/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <link rel="stylesheet" href="{% static 'myweb/public/css/denglu1.css' %}">
+    
+
+    <script src="{% static 'myweb/public/js/jquery-1.12.4.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'myweb/public/js/bootstrap.min.js' %}"></script>
+    
+   
+</head>
+<body>
+	<!-- 标题 -->
+	<div class="container">
+		<div class="row col-md-1 col-xs-2">
+			<img src="{% static 'myweb/images/10.png' %}" alt="" id="img1">
+		</div>
+		<div class="row col-md-3  col-xs-7 col-xs-offset-1 head">
+			<h3>小米商城</h3>
+			<h6>让每个人都能享受科技的乐趣</h6>
+		</div>
+		
+	</div>
+	<!-- end标题 -->
+	<!-- 中间内容 -->
+	 <div class="jumbotron">
+	 	<div class="container">
+	 		<!-- 商品展示区 -->
+		 	<div class="row col-md-5" >
+			 	 <h1>小米note2 </h1>
+			 	 <p>一面科技,一面艺术</p>
+			 	 <p>2256超高像素 | 双曲面柔性屏<span>2799元</span></p>
+			 	 <img src="{% static 'myweb/images/25.png' %}" alt="">
+			</div>
+			<!-- 商品展示完 -->
+			<!-- 注册登录 -->
+			<br><br>
+			<div class="row col-md-4 col-md-offset-2  " >
+				<h1>{{ logininfo }}</h1>
+				<br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'myweb_index' %}" style="color:orange">去逛首页</a></p>
+			<!-- 注册登陆完 -->
+	 		</div>
+	    </div> 
+	 </div>
+	<!-- end中间内容 -->
+	
+
+
+</body>
+	<script type="text/javascript" src="{% static 'myweb/public/js/denglu1.js' %}"></script>
+
+</html>	
+
+	
+		

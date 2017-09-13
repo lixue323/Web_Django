@@ -32,7 +32,10 @@ def usersinsert(request):
 		a=users()
 		a.username=request.GET['nicheng']
 		a.name=request.GET['name1']
-		a.passwd=request.GET['passwd']
+		import hashlib
+		m = hashlib.md5() 
+		m.update(bytes(request.GET['passwd'],encoding="utf8"))
+		a.passwd = m.hexdigest()
 		a.sex=request.GET['sex']
 		a.address=request.GET['address']
 		a.code=request.GET['code']

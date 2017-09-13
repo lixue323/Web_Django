@@ -53,8 +53,10 @@
 	    </ul>
 	   
 	    <ul class="nav navbar-nav navbar-right">
-	      <li><a href="{% url 'denglu1' %}" target="_blank">登录</a></li>
-	      <li><a href="{% url 'denglu1' %}" target="_blank">注册</a></li>
+	      <li><a href="" target="_blank">你好! &nbsp;{{ request.session.webuser }}</a></li>
+	      <li><a href="{% url 'myweb_login' %}" target="_blank">登录</a></li>
+	      <li><a href="{% url 'myweb_login' %}" target="_blank">注册</a></li>
+	      <li><a href="{% url 'myweb_logout' %}" target="_blank">退出</a></li>
 	      <li><a href="{% url 'buycar' %}" target="_blank">购物车</a></li>
 	      &nbsp;
 	      &nbsp;
@@ -76,10 +78,10 @@
 		    		<li><a href="">小米手机</a></li>
 		    		<li><a href="">红米</a></li>
 		    		<li><a href="">平板•笔记本</a></li>
-		    		<li><a href="{% url 'show' %}" target="_blank">电视</a></li>
+		    		<li><a href="" >电视</a></li>
 		    		<li><a href="">盒子•影音</a></li>
 		    		<li><a href="">路由器</a></li>
-		    		<li><a href="">智能硬件</a></li>
+		    		<li><a href="{% url 'show' %}" target="_blank">全部商品</a></li>
 		    		<li><a href="">服务</a></li>
 		    		<li><a href="">社区</a></li>
 		    	</ul>
@@ -185,17 +187,6 @@
 		</div>
     </footer>
 	<!-- end尾部 -->
-
-	
-	
-
-
-	 
-		
-	 
-
-
-	
 </body>
 {%block js%}js{%endblock%}
 </html>
