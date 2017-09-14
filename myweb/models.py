@@ -30,3 +30,7 @@ class goods(models.Model):
 	num=models.IntegerField(11)
 	clicknum=models.IntegerField(11)
 	addtime=models.IntegerField(11)
+
+
+	def toDict(self):
+		return {'id':self.id,'goods':self.goods,'price':self.price,'picname':self.picname}

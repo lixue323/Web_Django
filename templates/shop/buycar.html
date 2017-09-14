@@ -45,43 +45,34 @@
 				<tr>
 					<th><input id="checkall" type="checkbox" value="0"  >全选</th>
 					<th>商品名称</th>
+					
 					<th>单价(元)</th>
 					<th>数量</th>
 					<th>小计(元)</th>
+					<th>商品图片</th>
 					<th>操作</th>
 			 	</tr>
+			 	  {% for shop in request.session.shoplist.values %}
 			 	<tr>
 			 		<td><input  class="chk" id="good1" type="checkbox" value="1" name="goods[]"></td>
-			 		<td>小米4C</td>
-			 		<td>1239</td>
+			 		<td>
+			 		{{ shop.goods }}
+			 		</td>
+			 		
+			 		<td>{{ shop.price }}</td>
 			 		<td ><button class="jian">－</button><input class=Num type="text" value="1"><button class="jia">＋</button></td>
-			 		<td class="prices">1239</td>
-			 		<td><button class="remov">✘</button></td>
+
+			 		<td class="prices">{{ shop.price }}</td>
+
+			 		<td><img src="{% static 'goods/s_' %}{{ shop.picname}}" alt=""></td>
+
+			 		<td><button class="remov"><a href="{% url 'buycardel' shop.id %}">✘</a></button></td>
+
+			 		
 			 	</tr>
-			 	<tr>
-			 		<td><input  class="chk" id="good2" type="checkbox" value="2" name="goods[]" ></td>
-			 		<td>小米衬衫</td>
-			 		<td>99</td>
-			 		<td><button class="jian">－</button><input class=Num  type="text" value="1"><button class="jia">＋</button></td>
-			 		<td class="prices">99</td>
-			 		<td><button class="remov">✘</button></td>
-			 	</tr>
-			 	<tr>
-			 		<td><input   class="chk"  id="good3" type="checkbox" value="3" name="goods[]"></td>
-			 		<td>小米小米</td>
-			 		<td>29</td>
-			 		<td><button class="jian">－</button><input class=Num  type="text" value="1"><button class="jia">＋</button></td>
-			 		<td class="prices">29</td>
-			 		<td><button class="remov">✘</button></td>
-			 	</tr>
-			 	<tr>
-			 		<td><input class="chk" id="good4" type="checkbox" value="3" name="goods[]" ></td>
-			 		<td>小米空调</td>
-			 		<td>2999</td>
-			 		<td><button class="jian">－</button><input class=Num  type="text" value="1"><button class="jia">＋</button></td>
-			 		<td class="prices">2999</td>
-			 		<td><button class="remov">✘</button></td>
-			 	</tr>
+			 	{% endfor %}
+				
+			 	
 			</table>
 		</div>
 	</div>
@@ -100,6 +91,9 @@
 		</div>
 		<div class="row col-md-1 ">
 			<button>去结算</button>
+		</div>
+		<div class="row col-md-1 ">
+			<button><a href="{% url 'buycarclear' %}">清空</a></button>
 		</div>
 	</div>
 	<!-- end数量价格计算 -->

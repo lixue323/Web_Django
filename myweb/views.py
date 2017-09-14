@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from . models import users,types,goods
-import time
+import time,json
 # Create your views here.
 
 def loadContext(request):
@@ -31,12 +31,44 @@ def show(request,tid=0):
     	else:
     		context['goodslist'] = goods.objects.filter(typeid__in=types.objects.only('id').filter(path__contains=','+str(tid)+','))
     return render(request,'shop/show.html',context)
-def content(request):
-	return render(request,'shop/content.html')
+def content(request,tid):
+
+    a=goods.objects.get(id=tid)
+    types1=types.objects.get(id=a.typeid)
+    context={'goods':a,'types1':types1}
+    return render(request,'shop/content.html',context)
+
+def contentbuy(request,tid):
+    
+    goods1 = goods.objects.get(id=tid)
+    shop = goods1.toDict();
+   
+    #从session获取购物车信息
+    if 'shoplist' in request.session:
+        shoplist = request.session['shoplist']
+    else:
+        shoplist = {}
+   
+    shoplist[tid]=shop
+
+    #将购物车信息放回到session
+    request.session['shoplist'] = shoplist
+    return redirect(reverse('buycar'))
 
 def buycar(request):
 	return render(request,'shop/buycar.html')
 
+def buycardel(request,tid):
+    shoplist = request.session['shoplist']
+    del shoplist[tid]
+    request.session['shoplist'] = shoplist
+    return redirect(reverse('buycar'))
+    
+def buycarclear(request):
+    context = loadContext(request)
+    request.session['shoplist'] = {}
+    return render(request,"shop/buycar.html",context)
+    
 def myweb_add(request):
 	try:
 		a=users()

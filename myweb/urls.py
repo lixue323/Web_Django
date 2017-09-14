@@ -7,8 +7,13 @@ urlpatterns = [
     url(r'^show/(?P<tid>[0-9]+)$',views.show,name='show'),
 
 
-    url(r'^content$',views.content,name='content'),
+    url(r'^content/(?P<tid>[0-9]+)$',views.content,name='content'),
+    url(r'^contentbuy/(?P<tid>[0-9]+)$',views.contentbuy,name='contentbuy'),
     url(r'^buycar$',views.buycar,name='buycar'),
+    url(r'^buycardel/(?P<tid>[0-9]+)$',views.buycardel,name='buycardel'),
+    url(r'^buycarclear$',views.buycarclear,name='buycarclear'),
+
+
 
     url(r'^myweb_add$',views.myweb_add,name='myweb_add'),
     url(r'^myweb_login$',views.myweb_login,name='myweb_login'),

@@ -18,7 +18,7 @@
 	<div class="container head0">
 		<div class="row col-md-12">
 			<div class="col-md-6 col-md-12">
-				<a href="" class="head"><span class="head1">小米电视4A&nbsp;32英寸</span>&nbsp;|&nbsp;<span>小米电视4A&nbsp;&nbsp;43英寸</span></a>
+				<a href="{% url 'show' types1.id %}" class="head"><span class="head1">{{ types1.name}}</span>&nbsp;|&nbsp;<span>{{ goods.goods }}</span></a>
 			</div>
 			
 			<div class="col-md-3 col-md-offset-3 hidden-xs">
@@ -48,21 +48,18 @@
 		             <div class="carousel-inner">
 		  
 			             <div class="item active">
-			                 <img src="{% static 'myweb/images/82.jpg' %}" alt="..."  class="img-responsive">
+			                 <img src="{% static 'goods/' %}{{ goods.picname}}" alt="..."  class="img-responsive">
 				         </div>
 
 			             <div class="item active1">
-			                  <img src="{% static 'myweb/images/83.jpg' %}" alt="..." class="img-responsive">
+			                  <img src="{% static 'goods/' %}{{ goods.picname}}" alt="..." class="img-responsive">
 			             </div>
 
 			             <div class="item active2">
-			                  <img src="{% static 'myweb/images/81.jpg' %}" alt="..." class="img-responsive">
+			                  <img src="{% static 'goods/' %}{{ goods.picname}}" alt="..." class="img-responsive">
 			             </div>
 
 		             </div>
-		   
-
-
 		 
 				     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
 				          <span class="glyphicon glyphicon-chevron-left"></span>
@@ -73,9 +70,10 @@
 		          </div>
 			 </div>
 			<div class="row col-md-7 buy"> 
-				<h2>小米电视4A 32英寸</h2>
-				
-				<p><i>999元</i>&nbsp;&nbsp;&nbsp;<del>1099元</del>&nbsp;&nbsp;&nbsp;<b>【付款后预计20天内发货】</b></p>
+		
+				<h2>{{ goods.goods }}</h2>
+				 
+				<p><i>{{ goods.price }}</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>【付款后预计20天内发货】</b></p>
 				
 				<div class="buy1">
 					<span class="glyphicon glyphicon-map-marker"></span>
@@ -85,18 +83,21 @@
 				
 				<hr>
 				<div class="buy2">
-					<b>选择颜色</b>&nbsp;&nbsp;&nbsp;
-					<a href="">黑色</a>&nbsp;&nbsp;&nbsp;
-					<span>999元</span>
+					<b>商品描述</b>&nbsp;&nbsp;&nbsp;
+					<a href="">{{ goods.desc }}</a>&nbsp;&nbsp;&nbsp;
+					<span>{{ goods.price }}</span>
 				</div>
 				
 				<div class="buy2">
-					<b>选择尺寸</b>&nbsp;&nbsp;&nbsp;
-					<a href="">32英寸</a>
+					<b>库存</b>&nbsp;&nbsp;&nbsp;
+					<a href="">{{ goods.store }}</a>
 				</div>
 				
-				<h3>总计999元</h3>
-				<p><button>设置开售提醒</button></p>
+				<h3>总计{{ goods.price }}</h3>
+				<p><button>设置开售提醒</button><button><a href="{%url 'contentbuy' goods.id %}">加入购物车</a></button></p>
+				<p>{{ info }}</p>
+
+			</form>
 			</div>
 		
 		</div>
@@ -104,7 +105,9 @@
 	<!--end 商品下单区 -->
 	<br>
 	<hr>
-
+	<br>
+	<h3>商品推荐</h3>
+	<br>
 	<!-- 商品展示区1 -->
  	<div class="jumbotron">
  	  <h1>千元新旗舰 </h1>
