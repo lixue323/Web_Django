@@ -20,4 +20,12 @@ urlpatterns = [
     url(r'^myweb_dologin$', views.myweb_dologin, name="myweb_dologin"),
     url(r'^myweb_logout$', views.myweb_logout, name="myweb_logout"),
     url(r'^myweb_verify$', views.myweb_verify, name="myweb_verify"),
+
+    url(r'^myweb_orderlist$', views.myweb_orderlist, name="myweb_orderlist"),
+    url(r'^myweb_orderconfirm$', views.myweb_orderconfirm, name="myweb_orderconfirm"),
+
+    url(r'^myweb_orderinsert$', views.myweb_orderinsert, name="myweb_orderinsert"),
+
+
+
 ]

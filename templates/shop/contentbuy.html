@@ -1,0 +1,139 @@
+{% extends "shop/base.html" %}
+{% load static from staticfiles %}
+
+
+{%block title%}
+<title>mi•详情</title>
+{%endblock%}
+
+{%block css%}
+<link rel="stylesheet" href="{% static 'myweb/public/css/content.css' %}">
+
+{%endblock%}
+
+{%block contend%}
+<hr>
+
+	<!-- 当前页选择区 -->
+	<div class="container head0">
+		<div class="row col-md-12">
+			<div class="col-md-6 col-md-12">
+				<a href="{% url 'show' types1.id %}" class="head"><span class="head1">{{ types1.name}}</span>&nbsp;|&nbsp;<span>{{ goods.goods }}</span></a>
+			</div>
+			
+			<div class="col-md-3 col-md-offset-3 hidden-xs">
+				<span><a href="">概述</a></span>
+				<span><a href="">F码通道</a></span>
+				<span><a href="">用户评价</a></span>
+				&nbsp;&nbsp;
+				<button>立即购买</button>
+			</div>	
+		</div>
+	</div>
+	<!-- end当前页选择区 -->
+ 	<hr>
+
+	<!-- 商品下单区 -->
+	<div class="container">
+		<div class="row col-md-12">
+			<div class="row col-md-5" >
+		         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					  <!-- Indicators -->
+					    <ol class="carousel-indicators">
+					      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					      <li data-target="#carousel-example-generic" data-slide-to="1" class="active1"></li>
+					      <li data-target="#carousel-example-generic" data-slide-to="2" class="active2"></li>
+					    </ol>
+
+		             <div class="carousel-inner">
+		  
+			             <div class="item active">
+			                 <img src="{% static 'goods/' %}{{ goods.picname}}" alt="..."  class="img-responsive">
+				         </div>
+
+			             <div class="item active1">
+			                  <img src="{% static 'goods/' %}{{ goods.picname}}" alt="..." class="img-responsive">
+			             </div>
+
+			             <div class="item active2">
+			                  <img src="{% static 'goods/' %}{{ goods.picname}}" alt="..." class="img-responsive">
+			             </div>
+
+		             </div>
+		   
+
+
+		 
+				     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+				          <span class="glyphicon glyphicon-chevron-left"></span>
+				     </a>
+				     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+				          <span class="glyphicon glyphicon-chevron-right"></span>
+				     </a>
+		          </div>
+			 </div>
+			<div class="row col-md-7 buy"> 
+			<form action="{}">
+			<input type="text" value="{{ goods.goods }}">
+				
+				
+				
+				
+				
+			</form>
+			</div>
+		
+		</div>
+	</div>
+	<!--end 商品下单区 -->
+	<br>
+	<hr>
+	<br>
+	<h3>商品推荐</h3>
+	<br>
+	<!-- 商品展示区1 -->
+ 	<div class="jumbotron">
+ 	  <h1>千元新旗舰 </h1>
+ 	  <p>小米电视4A 32英寸</p>
+ 	  <p>64位四核处理器 | 1GB+4GB大内存</p>
+ 	  <img src="{% static 'myweb/images/88.png' %}" alt="">
+ 	  <h6>*该电视含开关机等形式的广告，开关机时的广告视频不能删除、更改，且第三方内容的广告视频无法控制</h6>
+ 	  <p></p>
+ 	  <p></p>
+ 	</div>
+	<!-- end商品展示区1 -->
+
+	
+
+		<!-- 商品展示区2 -->
+	<div class="jumbotron show2">
+	 	<h1>好看的不计其数  </h1>
+	 	<h1>高分的数不胜数</h1>
+	 	<br>
+	 	<p>每个家庭成员，都可以找到想看的</p>
+	 	
+	 	<img src="{% static 'myweb/images/104.png' %}" alt="" >
+	 
+	 	
+	 	<h3>看什么都身临其境</h3>
+	 	<p></p>
+	 	<p></p>
+	</div>
+		<!-- end商品展示区2 -->
+	
+
+	<hr>
+
+{%endblock%}    
+
+
+{%block js%}
+<script type="text/javascript" src="{% static 'myweb/public/js/content.js' %}"></script>
+{%endblock%}	
+		
+
+	
+
+	
+	 
+
