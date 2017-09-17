@@ -1,0 +1,165 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+ <title>小米订单处理</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+ <meta name="description" content=""/>
+ <meta name="format-detection" content="telephone=no" />
+ <meta name=""/>
+ 
+<link rel="stylesheet" href="{% static 'myweb/public/css/tasp.css' %}" />
+<link href="{% static 'myweb/public/css/orderconfirm.css' %}" rel="stylesheet" />
+
+
+<style>
+#page{width:auto;}
+#comm-header-inner,#content{width:950px;margin:auto;}
+#logo{padding-top:26px;padding-bottom:12px;}
+#header .wrap-box{margin-top:-67px;}
+#logo .logo{position:relative;overflow:hidden;display:inline-block;width:140px;height:35px;font-size:35px;line-height:35px;color:#f40;}
+#logo .logo .i{position:absolute;width:140px;height:35px;top:0;left:0;background:url(http://a.tbcdn.cn/tbsp/img/header/logo.png);}
+</style>
+
+</head>
+<body data-spm="1">
+
+
+<div id="page">
+
+ <div id="content" class="grid-c">
+
+  <div id="address" class="address" style="margin-top: 20px;" data-spm="2">
+  <h3>收货地址</h3>
+      <form action="{% url 'myweb_orderinsert' %}" method="post" >
+      {% csrf_token %}
+     
+          收件人:<input type="text" name="linkman" readonly value="{{request.POST.linkman}}"/>
+        
+       地址：<input type="text" name="address" readonly value="{{request.POST.address}}"/>
+        
+        邮编：<input type="text" name="code" readonly value="{{request.POST.code}}"/>
+        
+        电话：<input type="text" name="phone" readonly value="{{request.POST.phone}}"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+          
+            <input type="submit" value="提交"/>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="reset" value="重置"/>
+      </form>
+<br>
+
+<hr>
+<br>
+ <h3 class="dib">购物信息</h3>
+ <table cellspacing="0" cellpadding="0" class="order-table" id="J_OrderTable" summary="统一下单订单信息区域">
+ <caption style="display: none">统一下单订单信息区域</caption>
+ <thead>
+ <tr>
+ <th class="s-title">店铺宝贝<hr/></th>
+ <th class="s-agio">商品id<hr/></th>
+ <th class="s-price">单价(元)<hr/></th>
+ <th class="s-amount">数量<hr/></th>
+ 
+ <th class="s-total">小计(元)<hr/></th>
+ </tr>
+ </thead>
+     
+
+
+<tbody data-spm="3" class="J_Shop" data-tbcbid="0" data-outorderid="47285539868"  data-isb2c="false" data-postMode="2" data-sellerid="1704508670">
+<tr class="first"><td colspan="5"></td></tr>
+<tr class="shop blue-line">
+ <td colspan="3">
+ 
+     <span class="J_WangWang"  data-nick="淘米魅"   data-display="inline" ></span>
+    
+    </td>
+ <td colspan="2" class="promo">
+ <div>
+   <ul class="scrolling-promo-hint J_ScrollingPromoHint">
+       </ul>
+   </div>
+ </td>
+</tr>
+
+{% for shop in request.session.orderlist.values %}
+ <tr class="item" data-lineid="19614514619:31175333266:35612993875" data-pointRate="0">
+      <td class="s-title">
+        
+        <img src="/static/goods/s_{{ shop.picname }}" class="itempic"><span class="title J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.5">{{ shop.goods }}</span></a>
+      </td>
+
+      <td class="s-agio">
+          <div class="J_Promotion promotion" data-point-url="">{{ shop.id }}</div>
+      </td>
+
+      <td class="s-price">
+          <span class='price '>
+            <em class="style-normal-small-black J_ItemPrice"  >{{ shop.price }}</em>
+          </span>
+      </td>
+
+      <td class="s-amount" data-point-url="">
+         1
+      </td>
+
+      <td class="s-total">
+   
+          <span class='price '>
+            <em class="style-normal-bold-red J_ItemTotal "  >{{ shop.price }}</em>
+          </span>
+      </td>
+</tr>
+ {% endfor%}
+
+
+<tr class="item-service">
+      <td colspan="5" class="servicearea" style="display: none"></td>
+</tr>
+
+<tr class="blue-line" style="height: 2px;"><td colspan="5"></td></tr>
+<tr class="other other-line">
+    <td colspan="5">
+          <ul class="dib-wrap">
+              <li class="dib user-info">
+          </ul>
+          <ul class="wrap">
+              </li>
+          </ul>
+          
+    </td>
+</tr>
+
+<tr class="shop-total blue-line">
+ <td colspan="5">店铺合计:
+   <span class='price g_price '>
+ <span>&yen;</span><em class="style-middle-bold-red J_ShopTotal"  >{{ request.session.total }}</em>
+  </span>
+  
+
+   </td>
+</tr>
+
+  <tfoot>
+ <tr>
+ <td colspan="5">
+
+
+ <div class="kd-popup pop-back" style="margin-bottom: 40px;">
+
+         <a href="{% url 'buycar' %}"
+ class="back J_MakePoint" target="_top"
+ data-point-url="">返回购物车</a>
+       
+  </div>
+ </div>
+
+ <div class="J_confirmError confirm-error">
+ <div class="msg J_shopPointError" style="display: none;"><p class="error">积分点数必须为大于0的整数</p></div>
+ </div>
+
+
+ 
+
+</body>
+</html>
