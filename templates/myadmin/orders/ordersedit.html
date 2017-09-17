@@ -1,0 +1,109 @@
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}
+					
+<h3>
+	商品信息管理
+</h3>
+<form id="edit-profile" class="form-horizontal" action="{% url 'orderschange' %}"method="get" enctype="multipart/form-data" >
+	{% csrf_token %}
+	<fieldset>
+		<legend>信息修改</legend>
+		<input type="hidden" name='ggid' value="{{ orderclick.id }}">
+		
+
+		<div class="control-group">
+			<label class="control-label" for="input01">id:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="goods" value="{{ orderclick.id }}" />
+			</div>
+		</div>
+
+		
+		<div class="control-group">
+			<label class="control-label" for="input01">uid:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="goods" value="{{ orderclick.uid }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">linkman:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="price" value="{{ orderclick.linkman }}" />
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="input01">address:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="company" value="{{ orderclick.adress }}" />
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="input01">code:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="company" value="{{ orderclick.code }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">phone:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="store" value="{{ orderclick.phone }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">addtime:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="addtime" value="{{ orderclick.addtime }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">total:</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="input01" name="addtime" value="{{ orderclick.total }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="input01">state:</label>
+			<div class="controls">
+                    <input type="radio" name="state" class="input-xlarge" id="input01" 
+                    {% if orderclick.status == 0 %}
+                        checked  
+                    {% endif %}
+                    value="0" /> 新订单 
+                    <input type="radio" name="state" class="input-xlarge" id="input01" 
+                    {% if orderclick.status == 1 %}
+                        checked  
+                    {% endif %}
+                    value="1" /> 已发货
+                    <input type="radio" name="state" class="input-xlarge" id="input01" 
+                    {% if orderclick.status == 2 %}
+                        checked  
+                    {% endif %}
+                    value="2" /> 已收获
+
+                     <input type="radio" name="state" class="input-xlarge" id="input01" 
+                    {% if orderclick.status == 3 %}
+                        checked  
+                    {% endif %}
+                    value="3" /> 无效订单
+                </div>
+		</div>
+
+	
+							
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">添加</button> <button class="btn">重置</button>
+		</div>
+	</fieldset>
+</form>
+
+{% endblock %}

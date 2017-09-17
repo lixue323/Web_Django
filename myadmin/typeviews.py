@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from . models import types,goods
+from . models import types,goods,orders,detail,users
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
@@ -167,7 +167,6 @@ def goodsedit(request,gid):
 	context={'goods':a,'typelist':list}
 	return render(request,'myadmin/goods/goodsedit.html',context)
 	
-
 def goodsupdate(request):
 	a=request.POST['ggid']
 	d=int(a)
@@ -279,3 +278,54 @@ def goodsupdate(request):
 		context={'info':'修改失败'}
 	return render(request,'myadmin/info.html' ,context)
 	
+
+
+#######################################################
+#商品订单管理
+
+def ordersindex(request,pIndex):
+	a=request.session['webuser']['name']
+	
+	a=orders.objects.all()
+	orderslist= orders.objects.filter()
+    #实例化分页对象
+	p = Paginator(orderslist,5)
+    # 处理当前页号信息
+	#if pIndex=="":
+	#	pIndex = '1'
+	pIndex = int(pIndex)
+    # 获取当前页数据
+	list2 = p.page(pIndex)
+	#for i in list2:
+	#	ob=types.objects.get(id=i.typeid)
+	#	i.pname=ob.name
+	plist = p.page_range
+	for i in list2:
+		ob=users.objects.get(id=i.uid)
+		i.pname=ob.name
+	return render(request,"myadmin/orders/ordersindex.html",{'orders':list2,'pIndex':pIndex,'plist':plist,'a':a})
+
+def detail1(request,oid):
+	detaillist=detail.objects.filter(orderid=oid)
+	context={'detaillist':detaillist}
+	return render(request,'myadmin/orders/detail.html',context)
+
+def ordersedit(request,oid):
+	orderclick=orders.objects.get(id=oid)
+	context={'orderclick':orderclick}
+	return render(request,'myadmin/orders/ordersedit.html',context)
+
+def orderschange(request):
+	try:
+		a=request.GET['ggid']
+		b=int(a)
+		ob=orders.objects.get(id=b)
+		
+		ob.status=request.GET['state']
+	
+
+		ob.save()
+		context={'info':'修改成功'}
+	except:
+		context={'info':'修改失败'}
+	return render(request,'myadmin/info.html' ,context)

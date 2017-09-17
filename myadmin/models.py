@@ -42,3 +42,28 @@ class goods(models.Model):
 
 	class Meta:
 		db_table='myweb_goods'
+
+class orders(models.Model):
+    uid = models.IntegerField()
+    linkman = models.CharField(max_length=32)
+    adress = models.CharField(max_length=255)
+    code = models.CharField(max_length=6)
+    phone = models.CharField(max_length=16)
+    addtime = models.IntegerField()
+    total = models.FloatField()
+    status = models.IntegerField()
+
+    class Meta:
+    	db_table='myweb_orders'
+
+
+
+class detail(models.Model):
+    orderid = models.IntegerField()
+    goodid = models.IntegerField()
+    name = models.CharField(max_length=32)
+    price = models.FloatField()
+    num = models.IntegerField()
+
+    class Meta:
+    	db_table='myweb_detail'

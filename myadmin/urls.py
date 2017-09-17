@@ -36,6 +36,13 @@ urlpatterns = [
     url(r'^goodsdel/(?P<gid>[0-9]+)$', typeviews.goodsdel, name="goodsdel"),
     url(r'^goodsedit/(?P<gid>[0-9]+)$', typeviews.goodsedit, name="goodsedit"),
     url(r'^goodsupdate$', typeviews.goodsupdate, name="goodsupdate"),
+
+    #订单管理
+    url(r'^ordersindex/(?P<pIndex>[0-9])$', typeviews.ordersindex, name="ordersindex"),
+
+    url(r'^detail1/(?P<oid>[0-9]+)$', typeviews.detail1, name="detail1"),
+    url(r'^ordersedit/(?P<oid>[0-9]+)$', typeviews.ordersedit, name="ordersedit"),
+    url(r'^orderschange$', typeviews.orderschange, name="orderschange"),
  
 
  

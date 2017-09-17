@@ -1,0 +1,59 @@
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}
+					
+<h3>
+	订单信息
+</h3>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>
+				id
+			</th>
+			
+			<th>
+				orderid
+			</th>
+			<th>
+				goodid
+			</th>
+			<th>
+				name
+			</th>
+			
+			<th>
+				price
+			</th>
+			
+			<th >
+				操作
+			</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	{% for i in detaillist %}
+	<tr>
+		<td>{{ i.id }}</td>
+		<td>{{ i.orderid}}</td>
+		<td>{{ i.goodid }}</td>
+		<td>{{ i.name }}</td>
+		
+		<td>{{ i.price }}</td>
+		
+
+	
+		<td><a href="{% url 'ordersindex' 1 %}">返回订单</a></td>
+	
+	</tr>
+	{% endfor %}
+		
+	</tbody>
+
+</table>				
+
+
+
+	
+{% endblock %}
