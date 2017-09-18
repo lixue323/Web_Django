@@ -1,0 +1,38 @@
+{% extends "shop/selfbase.html" %}
+
+{% block mainbody %}
+
+	<div class="span9">
+		<h1>
+			Hi~ {{ request.session.webuser.name}}
+		</h1>
+		<div class="hero-unit">
+			<h1>
+				Welcome!
+			</h1>
+			<p>
+				你的个人中心
+			</p>
+			<p>
+				<a href="help.htm" class="btn btn-primary btn-large">Start Tour</a> <a class="btn btn-large">No Thanks</a>
+			</p>
+		</div>
+		<div class="well summary">
+			<ul>
+				<li>
+					<a href="#"><span class="count">3</span> Projects</a>
+				</li>
+				<li>
+					<a href="#"><span class="count">27</span> Tasks</a>
+				</li>
+				<li>
+					<a href="#"><span class="count">7</span> Messages</a>
+				</li>
+				<li class="last">
+					<a href="#"><span class="count">5</span> Files</a>
+				</li>
+			</ul>
+		</div>
+		
+
+{% endblock %}

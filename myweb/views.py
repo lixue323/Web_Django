@@ -228,3 +228,27 @@ def myweb_verify(request):
 
 
 
+def selfcenter(request):
+    return render(request,"shop/selfcenter.html")
+
+def selfinformation(request):
+    return render(request,"shop/selfinformation.html")
+
+def selforder(request,pIndex):
+    
+    a=str(request.session['webuser']['id'])
+    b=orders.objects.filter(uid=a)
+    p = Paginator(b,5)
+    if pIndex=="":
+        pIndex = '1'
+    pIndex = int(pIndex)
+    # 获取当前页数据
+    list2 = p.page(pIndex)
+    plist = p.page_range
+
+    return render(request,"shop/selforder.html",{'selforder':list2,'pIndex':pIndex,'plist':plist})
+
+
+def selfdetail(request,oid):
+    b=detail.objects.filter(orderid=oid)
+    return render(request,"shop/selfdetail.html",{'selfdetail':b})

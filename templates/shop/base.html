@@ -53,10 +53,11 @@
 	    </ul>
 	   
 	    <ul class="nav navbar-nav navbar-right">
-	      <li><a href="" target="_blank">你好! &nbsp;{{ request.session.webuser }}</a></li>
+	      <li><a href="" target="_blank">你好! &nbsp;{{ request.session.webuser.name }}</a></li>
 	      <li><a href="{% url 'myweb_login' %}" target="_blank">登录</a></li>
 	      <li><a href="{% url 'myweb_login' %}" target="_blank">注册</a></li>
 	      <li><a href="{% url 'myweb_logout' %}" target="_blank">退出</a></li>
+	      <li><a href="{% url 'selfcenter' %}" target="_blank">个人中心</a></li>
 	      <li><a href="{% url 'buycar' %}" target="_blank">购物车</a></li>
 	      &nbsp;
 	      &nbsp;

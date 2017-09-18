@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
 from . import views
+
 urlpatterns = [
     url(r'^$',views.myweb_index,name='myweb_index'),
     url(r'^show$',views.show,name='show'),
@@ -12,6 +13,11 @@ urlpatterns = [
     url(r'^buycar$',views.buycar,name='buycar'),
     url(r'^buycardel/(?P<tid>[0-9]+)$',views.buycardel,name='buycardel'),
     url(r'^buycarclear$',views.buycarclear,name='buycarclear'),
+
+    url(r'^selfcenter$',views.selfcenter,name='selfcenter'),
+    url(r'^selfinformation$',views.selfinformation,name='selfinformation'),
+    url(r'^selforder/(?P<pIndex>[0-9]+)$',views.selforder,name='selforder'),
+    url(r'^selfdetail/(?P<oid>[0-9]+)$',views.selfdetail,name='selfdetail'),
 
 
 

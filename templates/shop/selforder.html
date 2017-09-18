@@ -1,0 +1,91 @@
+{% extends "shop/selfbase.html" %}
+
+{% block mainbody %}
+
+				
+	<div class="span9">
+					<h1>
+						个人订单信息
+					</h1>
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>
+									联系人
+								</th>
+								<th>
+									地址
+								</th>
+								<th>
+									邮编
+								</th>
+								<th>
+									电话
+								</th>
+								<th>
+									下单时间
+								</th>
+								<th>
+									总计
+								</th>
+								<th>
+									状态
+								</th>
+								<th>
+									操作
+								</th>
+
+							</tr>
+						</thead>
+						<tbody>
+						{% for i in selforder %}
+							<tr>
+								<td>
+									{{ i.linkman }}
+								</td>
+								<td>
+									{{ i.adress }}
+								</td>
+								<td>
+									{{ i.code }}
+								</td>
+								<td>
+									{{ i.phone }}
+								</td>
+								<td>
+									{{ i.addtime }}
+								</td>
+								<td>
+									{{ i.total }}
+								</td>
+								<td>
+								{% if i.status == 0 %}
+					              新添加
+					        	{% elif i.status == 1 %}
+					              已发货
+					        	{% elif i.status == 2 %}
+					              已收货
+					            {% elif i.status == 3 %}
+					              无效订单
+								{% endif %}
+								</td>
+								<td>
+									<a href="{% url 'selfdetail' i.id %}">查看详情</a>
+								</td>
+							</tr>
+						{% endfor %}
+							
+						</tbody>
+						
+					</table>				
+<div class="pagination">
+		<ul class="pagination">
+            {%for pindex in plist%}
+                <li><a href={% url 'selforder' pindex %}>{{pindex}}</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            {% endfor %}
+        </ul>
+</div>
+
+
+{% endblock %}			
+	
