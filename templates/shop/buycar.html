@@ -54,7 +54,7 @@
 			 	</tr>
 			 	  {% for shop in request.session.shoplist.values %}
 			 	<tr>
-			 		<td><input  class="chk" id="good1" type="checkbox" value="1" name="goods[]"></td>
+			 		<td><input  class="chk" gid={{ shop.id }} id="good1" type="checkbox" value="1" name="goods[]"></td>
 			 		<td>
 			 		{{ shop.goods }}
 			 		</td>
@@ -81,7 +81,7 @@
 	<!-- 数量价格计算 -->
 	<div class="container">
 		<div class="row col-md-3">
-			<a href="{% url 'myweb_index' %}">继续购物</a>
+			<a href="{% url 'show' %}">继续购物</a>
 			<span>共<i class="num" id="allgoodsnum">2</i>件商品</i></span>
 
 		</div>
@@ -90,7 +90,7 @@
 			<span>合计<em class="num" id='allprices'>3455</em>元</span>	
 		</div>
 		<div class="row col-md-1 ">
-			<button>去结算</button>
+			<button onclick="window.location='{% url 'myweb_orderlist' %}?gids='+totalmoney().join(',')">去结算</button>
 		</div>
 		<div class="row col-md-1 ">
 			<button><a href="{% url 'buycarclear' %}">清空</a></button>
@@ -230,6 +230,21 @@
 
 </body>
 	<script type="text/javascript" src="{% static 'myweb/public/js/buycar.js' %}"></script>
+	<script type="text/javascript">
+		function totalmoney(){
+        
+        var ids = [];
+        var list = $('.chk');
+        for(var i=0;i<list.length;i++){
+                    ids.push($(list[i]).attr('gid'));
+        }
+       
+        return ids;
+    }
+
+
+
+	</script>
 </html>	
 
 	

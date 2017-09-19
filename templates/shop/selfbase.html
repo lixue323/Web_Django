@@ -4,8 +4,9 @@
 <html lang="en"><!--<![endif]--> 
 	<head>
 		<meta charset="utf-8">
-		<title>后台管理</title>
+		<title>个人中心</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'myweb/images/bt.ico' %}" >
 		<link href="{% static 'myweb/css/bootstrap.min.css' %}" rel="stylesheet">
 		<link href="{% static 'myweb/css/bootstrap-responsive.min.css' %}" rel="stylesheet">
 		<link href="{% static 'myweb/css/site.css' %}" rel="stylesheet">
@@ -13,23 +14,23 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="navbar">
+			<div class="navbar" >
 				<div class="navbar-inner">
 					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Akira</a>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">mi</a>
 						<div class="nav-collapse">
 							<ul class="nav">
 								<li class="active">
-									<a href="index.html">Dashboard</a>
+									<a href="index.html">个人中心</a>
 								</li>
 								<li>
-									<a href="settings.htm">Account Settings</a>
+									<a href="settings.htm"> 账户安全</a>
 								</li>
 								<li>
-									<a href="help.htm">Help</a>
+									<a href="help.htm">申请会员</a>
 								</li>
 								<li class="dropdown">
-									<a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">Tours <b class="caret"></b></a>
+									<a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">帮助 <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li>
 											<a href="help.htm">Introduction Tour</a>
@@ -65,7 +66,7 @@
 									<a href="profile.htm">@{{ request.session.webuser.name}}</a>
 								</li>
 								<li>
-									<a href="login.htm">Logout</a>
+									<a href="{% url 'myweb_index' %}">返回首页</a>
 								</li>
 							</ul>
 						</div>
@@ -77,7 +78,7 @@
 					<div class="well" style="padding: 8px 0;">
 						<ul class="nav nav-list">
 							<li class="nav-header">
-								Akira
+								小米
 							</li>
 							<li class="active">
 								<a href="{% url 'selfcenter' %}"><i class="icon-white icon-home"></i> 首页</a>
@@ -89,36 +90,36 @@
 								<a href="{% url 'selforder' 1 %}"><i class="icon-check"></i> 个人订单</a>
 							</li>
 							<li>
-								<a href="messages.htm"><i class="icon-envelope"></i> Messages</a>
+								<a href="messages.htm"><i class="icon-envelope"></i> 有待开发</a>
 							</li>
 							<li>
-								<a href="files.htm"><i class="icon-file"></i> Files</a>
+								<a href="files.htm"><i class="icon-file"></i> 有待开发</a>
 							</li>
 							<li>
-								<a href="activity.htm"><i class="icon-list-alt"></i> Activity</a>
+								<a href="activity.htm"><i class="icon-list-alt"></i> 有待开发</a>
 							</li>
 							<li class="nav-header">
-								Your Account
+								
 							</li>
 							<li>
-								<a href="profile.htm"><i class="icon-user"></i> Profile</a>
+								<a href="profile.htm"><i class="icon-user"></i> 有待开发</a>
 							</li>
 							<li>
-								<a href="settings.htm"><i class="icon-cog"></i> Settings</a>
+								<a href="settings.htm"><i class="icon-cog"></i> 有待开发</a>
 							</li>
 							<li class="divider">
 							</li>
 							<li>
-								<a href="help.htm"><i class="icon-info-sign"></i> Help</a>
+								<a href="help.htm"><i class="icon-info-sign"></i> 有待开发</a>
 							</li>
 							<li class="nav-header">
-								Bonus Templates
+								有待开发
 							</li>
 							<li>
-								<a href="gallery.htm"><i class="icon-picture"></i> Gallery</a>
+								<a href="gallery.htm"><i class="icon-picture"></i> 有待开发</a>
 							</li>
 							<li>
-								<a href="blank.htm"><i class="icon-stop"></i> Blank Slate</a>
+								<a href="blank.htm"><i class="icon-stop"></i> 有待开发</a>
 							</li>
 						</ul>
 					</div>

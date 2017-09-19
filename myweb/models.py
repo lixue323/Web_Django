@@ -13,7 +13,7 @@ class users(models.Model):
 	state=models.IntegerField(1)
 	addtime=models.IntegerField(11)
 	def toDict(self):
-		return {'id':self.id,'username':self.username,'name':self.name,'address':self.address,'phone':self.phone,'code':self.code}
+		return {'id':self.id,'username':self.username,'name':self.name,'address':self.address,'phone':self.phone,'code':self.code,'email':self.email}
 
 class types(models.Model):
 	name=models.CharField(max_length=32)

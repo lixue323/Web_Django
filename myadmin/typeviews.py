@@ -231,54 +231,6 @@ def goodsupdate(request):
 
 
 
-	myfile = request.FILES.get("picname")
-
-    # 以时间戳命名一个新图片名称
-	filename= str(time.time())+"."+myfile.name.split('.').pop()
-	print(filename)
-	destination = open(os.path.join("./static/goods/",filename),'wb+')
-	for chunk in myfile.chunks():      # 分块写入文件  
-		destination.write(chunk)  
-	destination.close()
-
-	# 执行图片缩放
-	im = Image.open("./static/goods/"+filename)
-    # 缩放到375*375:
-	im.thumbnail((375, 375))
-    # 把缩放后的图像用jpeg格式保存:
-	im.save("./static/goods/"+filename, 'jpeg')
-    # 缩放到220*220:
-	im.thumbnail((220, 220))
-    # 把缩放后的图像用jpeg格式保存:
-	im.save("./static/goods/m_"+filename, 'jpeg')
-    # 缩放到220*220:
-	im.thumbnail((100, 100))
-    # 把缩放后的图像用jpeg格式保存:
-	im.save("./static/goods/s_"+filename, 'jpeg')
-
-	try:
-		a=request.POST['ggid']
-		d=int(a)
-		b=goods.objects.get(id=d)
-
-		b.typeid=request.POST['typeid']
-		b.goods=request.POST['goods']
-		b.company=request.POST['company']
-		b.desc=request.POST['desc']
-		b.price=request.POST['price']
-		b.picname=filename
-		b.state=request.POST['state']
-		b.store=request.POST['store']
-		b.num=request.POST['num']
-		b.clicknum=request.POST['clicknum']
-		b.addtime=request.POST['addtime']
-		b.save()
-		context={'info':'修改成功'}
-	except:
-		context={'info':'修改失败'}
-	return render(request,'myadmin/info.html' ,context)
-	
-
 
 #######################################################
 #商品订单管理

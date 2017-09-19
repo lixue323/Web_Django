@@ -16,20 +16,20 @@
 			<div class="navbar">
 				<div class="navbar-inner">
 					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">admin</a>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">mi</a>
 						<div class="nav-collapse">
 							<ul class="nav">
 								<li class="active">
 									<a href="{% url 'index' %}">首页</a>
 								</li>
 								<li>
-									<a href="settings.htm">Account Settings</a>
+									<a href="settings.htm">账户设置</a>
 								</li>
 								<li>
-									<a href="help.htm">Help</a>
+									<a href="help.htm">帮助</a>
 								</li>
 								<li class="dropdown">
-									<a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">Tours <b class="caret"></b></a>
+									<a href="help.htm" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li>
 											<a href="help.htm">Introduction Tour</a>
@@ -118,36 +118,9 @@
 								订单管理
 							</li>
 							<li>
-								<a href="files.htm"><i class="icon-file"></i> 浏览订单信息</a>
+								<a href="{% url 'ordersindex' 1%}"><i class="icon-file"></i> 浏览订单信息</a>
 							</li>
-							<li>
-								<a href="activity.htm"><i class="icon-list-alt"></i> 管理订单信息</a>
-							</li>
-
-
-							<li class="nav-header">
-								Your Account
-							</li>
-							<li>
-								<a href="profile.htm"><i class="icon-user"></i> Profile</a>
-							</li>
-							<li>
-								<a href="settings.htm"><i class="icon-cog"></i> Settings</a>
-							</li>
-							<li class="divider">
-							</li>
-							<li>
-								<a href="help.htm"><i class="icon-info-sign"></i> Help</a>
-							</li>
-							<li class="nav-header">
-								Bonus Templates
-							</li>
-							<li>
-								<a href="gallery.htm"><i class="icon-picture"></i> Gallery</a>
-							</li>
-							<li>
-								<a href="blank.htm"><i class="icon-stop"></i> Blank Slate</a>
-							</li>
+							
 						</ul>
 					</div>
 				</div>
